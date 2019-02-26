@@ -1,1 +1,0 @@
-// acá irá la funcion mdlinks(path, options) la cual sera una promesa
