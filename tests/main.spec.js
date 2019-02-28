@@ -1,4 +1,4 @@
-describe('mdLinks', () => {
+/* describe('mdLinks', () => {
 
     it('Debería ser una función', () => {
         return expect(typeof mdlinks).toBe('function')
@@ -11,4 +11,4 @@ describe('mdLinks', () => {
                 listo();
             })
     })
- });
+ }); */
