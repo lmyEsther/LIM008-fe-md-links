@@ -1,9 +1,10 @@
-import { extractLinks } from '../lib/utils/extraer-links.js';
+import { extractLinks } from '../../lib/utils/extraer-links.js';
 
 describe('extractLinks', () => {
   it('Debería ser una función', () => {
     expect(typeof extractLinks).toBe('function');
   });
+  
   it('Debería retornar un arreglo de objetos con cada link encontrado', () => {
     expect(extractLinks(
       ['C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md',

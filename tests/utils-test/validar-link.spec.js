@@ -1,4 +1,4 @@
-import { validarLinks } from '../lib/utils/validate.js';
+import { validarLinks } from '../../lib/utils/validate.js';
 
 describe('validarLinks', () => {
   it('Debería ser una función', () => {
