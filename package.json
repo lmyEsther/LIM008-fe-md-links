@@ -1,8 +1,8 @@
 {
-  "name": "social-network",
+  "name": "cheremomdlinks",
   "version": "1.0.0",
-  "description": "Social Network @ Laboratoria",
-  "main": "src/index.html",
+  "description": "Modulo que extrae y/o valida los links existentes en un archivo markdown",
+  "main": "./lib/main.js",
   "keywords": [
     "javascript",
     "npm",
@@ -10,9 +10,21 @@
   ],
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint --ext .js src/ test/",
+    "eslint": "eslint --ext .js lib/ tests/",
     "test": "jest --coverage"
   },
+  "bin": {
+    "mdlinks": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lmyEsther/LIM008-fe-md-links.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lmyEsther/LIM008-fe-md-links/issues"
+},
+  "homepage": "https://github.com/lmyEsther/LIM008-fe-md-links#readme",
+  "author": "L. Esther Cheremo Coronel",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
