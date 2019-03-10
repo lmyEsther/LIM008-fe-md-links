@@ -1,21 +1,32 @@
 import { mdLinks } from '../lib/main.js';
 const path = require('path');
 
+const fetchMock = require('../__mocks__/node-fetch.js');
+
+fetchMock.config.sendAsJson = false;
+fetchMock.config.fallbackToNetwork = true;
+
 let options = {
   validate: false
 };
 
 describe('mdLinks', () => {
+  afterEach(() => {
+    fetchMock.reset();
+    fetchMock.restore();
+  });
+
   it('Debería ser una función', () => {
     expect(typeof mdLinks).toBe('function');
   });
 
-  it('Debería devolver una promesa', () => {
-    expect(mdLinks('tests\\test-imp\\test-1\\archivo.md', options)).toBeInstanceOf(Promise);
-  });
+  // it('Debería devolver una promesa', () => {
+  //   expect(mdLinks('tests\\test-imp\\test-1\\archivo.md', options)).toBeInstanceOf(Promise);
+  // });
 
   it('Devuelve una promesa que resuelve a un array de objetos de un archivo', async() => {
     expect.assertions(1);
+    
     const data = await mdLinks('tests\\test-imp\\test-1\\archivo.md', options);
     expect(data).toEqual([{'href': 'https://es.wikipedia.org/wiki/Markdown', 'route': path.join(process.cwd(),'tests\\test-imp\\test-1\\archivo.md'), 'text': 'Markdown dfgdfgt el link lo ha truncado hasta aqui'}, 
       {'href': 'https://nodejs.org/', 'route': path.join(process.cwd(),'tests\\test-imp\\test-1\\archivo.md'), 'text': 'Node.js'}]);
@@ -33,6 +44,10 @@ describe('mdLinks', () => {
   it('Devuelve una promesa que resuelve un array de objetos con validate', async() => {
     expect.assertions(1);
     options.validate = true;
+
+    fetchMock.get('https://es.wikipedia.org/wiki/Markdown', { status: 200, statusText: 'OK'});
+    fetchMock.get('https://nodejs.org/', { status: 200, statusText: 'OK'});
+
     const data = await mdLinks('tests\\test-imp\\test-1\\archivo.md', options);
     expect(data).toEqual([{'href': 'https://es.wikipedia.org/wiki/Markdown', 'route': path.join(process.cwd(),'tests\\test-imp\\test-1\\archivo.md'), 'status': 200, 'statusText': 'OK', 'text': 'Markdown dfgdfgt el link lo ha truncado hasta aqui'}, {'href': 'https://nodejs.org/', 'route': path.join(process.cwd(),'tests\\test-imp\\test-1\\archivo.md'), 'status': 200, 'statusText': 'OK', 'text': 'Node.js'}]);
   });
@@ -40,6 +55,12 @@ describe('mdLinks', () => {
   it('Devuelve una promesa que resuelve un array de objetos con validate', async() => {
     expect.assertions(1);
     options.validate = true;
+
+    fetchMock.get('https://es.wikipedia.org/wiki/Markdown', { status: 200, statusText: 'OK'});
+    fetchMock.get('https://nodejs.org/', { status: 200, statusText: 'OK'});
+    fetchMock.get('https://nodejs.org/es/', { status: 200, statusText: 'OK'});
+    fetchMock.get('https://developers.google.com/v8/', { status: 200, statusText: 'OK'});
+
     const data = await mdLinks('tests\\test-imp\\test-1', options);
     expect(data).toEqual([{'href': 'https://es.wikipedia.org/wiki/Markdown', 'route': path.join(process.cwd(),'tests\\test-imp\\test-1\\archivo.md'), 'status': 200, 'statusText': 'OK', 'text': 'Markdown dfgdfgt el link lo ha truncado hasta aqui'}, 
       {'href': 'https://nodejs.org/', 'route': path.join(process.cwd(),'tests\\test-imp\\test-1\\archivo.md'), 'status': 200, 'statusText': 'OK', 'text': 'Node.js'},
