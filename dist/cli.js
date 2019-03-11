@@ -21,15 +21,15 @@ var routeInput = args[0];
 if (args.includes('--validate') && args.includes('--stats')) {
   options.validate = true;
   (0, _main.mdLinks)(routeInput, options).then(function (res) {
-    console.log("total: ".concat(res.length, "\nbroken: ").concat(res.filter(function (link) {
+    console.log("\n      total: ".concat(res.length, "\n      broken: ").concat(res.filter(function (link) {
       return link.href >= 400;
-    }).length, "\nunique: ").concat((0, _stats.filtrarLinksUnicos)(res).length));
+    }).length, "\n      unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n      "));
   }).catch(function (err) {
     return console.log(err);
   });
 } else if (args.includes('--stats')) {
   (0, _main.mdLinks)(routeInput, options).then(function (res) {
-    console.log("total: ".concat(res.length, "\nunique: ").concat((0, _stats.filtrarLinksUnicos)(res).length));
+    console.log("\n    total: ".concat(res.length, "\n    unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n    "));
   }).catch(function (err) {
     return console.log(err);
   });

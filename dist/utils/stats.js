@@ -20,7 +20,6 @@ var filtrarLinksUnicos = function filtrarLinksUnicos(jsonLinks) {
     acum.push(ele.href);
     return acum;
   }, []);
-  console.log(jsonLinks);
   var uniqueLinks = arrayUrl.filter(function (item, index, array) {
     return array.indexOf(item) === index;
   });

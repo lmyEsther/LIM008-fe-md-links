@@ -6,21 +6,21 @@ describe('extractAllRoutes', () => {
   });
 
   it('es archivo', () => {
-    expect(extractRoutesMd('C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md')).toEqual(['C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md']);
+    expect(extractRoutesMd('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md')).toEqual(['C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md']);
   });
 
   it('es directorio, debería devolver un array de archivos en formato md solamente', () => {
-    expect(extractRoutesMd('C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp'))
-      .toEqual(['C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md', 'C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo4.md']);
+    expect(extractRoutesMd('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp'))
+      .toEqual(['C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md', 'C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo4.md']);
   });
 
   it('debería recorrer una carpeta y devolver todas las rutas de los archivos md en array de string', () => {
-    expect(extractRoutesMd('C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp').length).toBe(2);
+    expect(extractRoutesMd('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp').length).toBe(2);
   });
   
   it('debería recorrer una carpeta y devolver todas las rutas de los archivos md', () => {
-    const arrayRoutes = extractRoutesMd('C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp');
-    expect(arrayRoutes.includes('C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md')).toBe(true);
-    expect(arrayRoutes.includes('C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo4.md')).toBe(true);
+    const arrayRoutes = extractRoutesMd('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp');
+    expect(arrayRoutes.includes('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md')).toBe(true);
+    expect(arrayRoutes.includes('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo4.md')).toBe(true);
   });
 });
