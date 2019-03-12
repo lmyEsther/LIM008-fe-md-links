@@ -1,8 +1,8 @@
 {
-  "name": "social-network",
+  "name": "md-links",
   "version": "1.0.0",
-  "description": "Social Network @ Laboratoria",
-  "main": "src/index.html",
+  "description": "Modulo que extrae y/o valida los links existentes en un archivo markdown",
+  "main": "dist/main.js",
   "keywords": [
     "javascript",
     "npm",
@@ -10,18 +10,39 @@
   ],
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint --ext .js src/ test/",
+    "build": "babel lib --out-dir dist",
+    "serve": "node dist/main.js",
+    "eslint": "eslint --ext .js lib/ tests/",
     "test": "jest --coverage"
   },
+  "bin": {
+    "md-links": "dist/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmyEsther/md-links.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lmyEsther/md-links/issues"
+  },
+  "homepage": "https://github.com/lmyEsther/md-links#readme",
+  "author": "L. Esther Cheremo Coronel",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
     "babel-jest": "^24.1.0",
     "eslint": "^5.10.0",
     "eslint-plugin-jest": "^22.1.2",
+    "fetch-mock": "^7.3.1",
     "jest": "^24.1.0",
+    "marked": "^0.6.1",
+    "node-fetch": "^2.3.0",
+    "nodemon": "^1.18.10",
     "regenerator-runtime": "^0.13.1"
   }
 }
-
