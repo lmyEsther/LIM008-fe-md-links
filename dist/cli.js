@@ -10,8 +10,7 @@ var _main = require("./main.js");
 var _stats = require("./utils/stats.js");
 
 var _process$argv = (0, _toArray2.default)(process.argv),
-    args = _process$argv.slice(2); // console.log(`Hello World ${args}`);
-
+    args = _process$argv.slice(2);
 
 var options = {
   validate: false
@@ -21,15 +20,15 @@ var routeInput = args[0];
 if (args.includes('--validate') && args.includes('--stats')) {
   options.validate = true;
   (0, _main.mdLinks)(routeInput, options).then(function (res) {
-    console.log("\n      total: ".concat(res.length, "\n      broken: ").concat(res.filter(function (link) {
+    console.log("\n      Total: ".concat(res.length, "\n      Broken: ").concat(res.filter(function (link) {
       return link.href >= 400;
-    }).length, "\n      unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n      "));
+    }).length, "\n      Unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n      "));
   }).catch(function (err) {
     return console.log(err);
   });
 } else if (args.includes('--stats')) {
   (0, _main.mdLinks)(routeInput, options).then(function (res) {
-    console.log("\n    total: ".concat(res.length, "\n    unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n    "));
+    console.log("\n    Total: ".concat(res.length, "\n    Unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n    "));
   }).catch(function (err) {
     return console.log(err);
   });

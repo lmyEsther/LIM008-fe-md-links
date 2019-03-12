@@ -78,6 +78,24 @@ function () {
   return function mdLinks(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}();
+}(); // siguiendo consejo de Mariano de aplicar new Promise tambien
+// export const mdLinks = (route, options) => {
+//   return new Promise((resolve, reject) => {
+//     const absolute = path.resolve(route);
+//     const arrayRoutesMD = extractRoutesMd(absolute);
+//     const jsonLinks = extractLinks(arrayRoutesMD);
+//     const copyJson = [ ...jsonLinks];
+//     if (route) {
+//       if (options.validate) {
+//         validarLinks(copyJson).then(res => resolve(res));
+//       } else {
+//         resolve(jsonLinks);
+//       }
+//     } else {
+//       reject('no hay ruta');
+//     }
+//   });
+// };
+
 
 exports.mdLinks = mdLinks;

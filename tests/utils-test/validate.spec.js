@@ -25,7 +25,6 @@ describe('validarLinks', () => {
   it('Debería devolver un json de links validados', async() => {
     expect.assertions(1);
     fetchMock.get('https://es.wikipedia.org/wiki/Markdown', { status: 200, statusText: 'OK'});
-    // fetchMock.mock('https://es.wikipedia.org/wiki/Markdown', 200)
 
     const data = await validarLinks([{ href: 'https://es.wikipedia.org/wiki/Markdown',
       text: 'Markdown dfgdfgt el link lo ha truncado hasta aqui',
