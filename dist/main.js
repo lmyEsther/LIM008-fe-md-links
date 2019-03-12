@@ -78,7 +78,7 @@ function () {
   return function mdLinks(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}(); // siguiendo consejo de Mariano de aplicar new Promise tambien
+}(); // siguiendo feedback de Mariano de aplicar new Promise tambien
 // export const mdLinks = (route, options) => {
 //   return new Promise((resolve, reject) => {
 //     const absolute = path.resolve(route);
