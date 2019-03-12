@@ -5,7 +5,7 @@ Markdown Links es un modulo que extrae y valida cada link que haya dentro de un 
 
 ## Instalación
 
-Ejecuta `npm install --global lmyEsther/md-links`.
+Ejecuta `npm install --save-dev lmyEsther/md-links`.
 
 
 ### JavaScript API
