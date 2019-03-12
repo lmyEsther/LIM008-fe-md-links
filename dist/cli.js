@@ -21,7 +21,7 @@ if (args.includes('--validate') && args.includes('--stats')) {
   options.validate = true;
   (0, _main.mdLinks)(routeInput, options).then(function (res) {
     console.log("\n      Total: ".concat(res.length, "\n      Broken: ").concat(res.filter(function (link) {
-      return link.href >= 400;
+      return link.status >= 404;
     }).length, "\n      Unique: ").concat((0, _stats.filtrarLinksUnicos)(res).length, "\n      "));
   }).catch(function (err) {
     return console.log(err);
