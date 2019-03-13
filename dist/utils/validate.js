@@ -65,12 +65,6 @@ function () {
   return function validarLinks(_x) {
     return _ref.apply(this, arguments);
   };
-}(); // (async() => {
-//   console.log(await validarLinks([{ href: 'https://nodejs.org/es/',
-//     text: 'Node.js',
-//     route:
-//    'C:\\Users\\Betech\\Desktop\\Laboratoria\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo4.md' }]));
-// })();
-
+}();
 
 exports.validarLinks = validarLinks;

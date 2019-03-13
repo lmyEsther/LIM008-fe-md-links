@@ -36,7 +36,6 @@ var extractRoutesMd = function extractRoutesMd(absolute) {
 
   ;
   return arrayRoutes;
-}; // console.log(extractRoutesMd('C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp'));
-
+};
 
 exports.extractRoutesMd = extractRoutesMd;
