@@ -23,9 +23,10 @@ const path = require('path');
 */
 
 
-const mdLinks = async (route, options = {
-  validate: false
-}) => {
+const mdLinks = async (route, options) => {
+  options = typeof options !== 'undefined' ? options : {
+    validate: false
+  };
   const absolute = path.resolve(route);
   const arrayRoutesMD = (0, _extraerMd.extractRoutesMd)(absolute);
   const jsonLinks = (0, _extraerLinks.extractLinks)(arrayRoutesMD);
