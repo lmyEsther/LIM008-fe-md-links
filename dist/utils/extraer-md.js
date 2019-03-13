@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.extractRoutesMd = void 0;
 
-var fs = require('fs');
+const fs = require('fs');
 
-var path = require('path');
+const path = require('path');
 /**
  * Funcion que extrae las rutas de archivos md que hayan en el directorio
  * haciendo la pregunta de si la ruta ingresada es un archivo o es un directorio
@@ -18,18 +18,18 @@ var path = require('path');
  */
 
 
-var extractRoutesMd = function extractRoutesMd(absolute) {
-  var arrayRoutes = [];
-  var root = fs.lstatSync(absolute);
+const extractRoutesMd = absolute => {
+  let arrayRoutes = [];
+  const root = fs.lstatSync(absolute);
 
   if (root.isFile()) {
     if (path.extname(absolute) === '.md') {
       arrayRoutes.push(absolute);
     }
   } else {
-    var readDirectory = fs.readdirSync(absolute);
-    readDirectory.forEach(function (element) {
-      var directoryArray = extractRoutesMd(path.join(absolute, element));
+    const readDirectory = fs.readdirSync(absolute);
+    readDirectory.forEach(element => {
+      const directoryArray = extractRoutesMd(path.join(absolute, element));
       arrayRoutes = arrayRoutes.concat(directoryArray);
     });
   }
