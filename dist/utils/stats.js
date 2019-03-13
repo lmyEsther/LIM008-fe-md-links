@@ -13,12 +13,12 @@ exports.filtrarLinksUnicos = void 0;
  * 
  * 
  */
-var filtrarLinksUnicos = function filtrarLinksUnicos(jsonLinks) {
-  var arrayUrl = jsonLinks.reduce(function (acum, ele) {
+const filtrarLinksUnicos = jsonLinks => {
+  const arrayUrl = jsonLinks.reduce((acum, ele) => {
     acum.push(ele.href);
     return acum;
   }, []);
-  var uniqueLinks = arrayUrl.filter(function (item, index, array) {
+  const uniqueLinks = arrayUrl.filter((item, index, array) => {
     return array.indexOf(item) === index;
   });
   return uniqueLinks;

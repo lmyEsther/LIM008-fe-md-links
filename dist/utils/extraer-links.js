@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.extractLinks = void 0;
 
-var fs = require('fs');
+const fs = require('fs');
 
-var myMarked = require('marked');
+const myMarked = require('marked');
 /**
  * Esta funcion hace match con los links que se encuentren en el archivo markdown
  * los extrae y almacena en un jsonLink
@@ -17,22 +17,22 @@ var myMarked = require('marked');
  */
 
 
-var extractLinks = function extractLinks(arrayRoutes) {
-  var jsonLinks = [];
-  arrayRoutes.forEach(function (route) {
-    var contentMD = fs.readFileSync(route, 'utf-8');
-    var renderer = new myMarked.Renderer();
+const extractLinks = arrayRoutes => {
+  let jsonLinks = [];
+  arrayRoutes.forEach(route => {
+    const contentMD = fs.readFileSync(route, 'utf-8');
+    const renderer = new myMarked.Renderer();
 
-    renderer.link = function (href, __, text) {
+    renderer.link = (href, __, text) => {
       jsonLinks.push({
-        href: href,
+        href,
         text: text.substring(0, 50),
-        route: route
+        route
       });
     };
 
     myMarked(contentMD, {
-      renderer: renderer
+      renderer
     });
   });
   return jsonLinks;
