@@ -36,9 +36,6 @@ var extractLinks = function extractLinks(arrayRoutes) {
     });
   });
   return jsonLinks;
-}; // console.log(extractLinks(
-//   ['C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo.md',
-//     'C:\\Users\\Laboratoria\\Documents\\Projects\\LIM008-fe-md-links\\tests\\test-imp\\test-1\\archivo4.md']));
-
+};
 
 exports.extractLinks = extractLinks;
