@@ -78,7 +78,8 @@ function () {
   return function mdLinks(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}(); // siguiendo feedback de Mariano de aplicar new Promise tambien
+}(); // reject que la ruta no exista, que no le ingrese parametros
+// siguiendo feedback de Mariano de aplicar new Promise tambien
 // export const mdLinks = (route, options) => {
 //   return new Promise((resolve, reject) => {
 //     const absolute = path.resolve(route);
